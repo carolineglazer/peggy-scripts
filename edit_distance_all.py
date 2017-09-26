@@ -4,15 +4,15 @@ import operator
 
 all_diffs = {}
 
-for f in sorted(os.listdir('..')):
+for f in sorted(os.listdir('../all/')):
 	if f.endswith('.xml'):
 		print('###### '+f+' ######')
-		base_peggy = ('../'+f)
+		base_peggy = ('../all/'+f)
 		diffs = []
 		total = 0
-		for i in sorted(os.listdir('..')):
+		for i in sorted(os.listdir('../all/')):
 			if i.endswith('.xml'):
-				peggy_pair = omr.evaluators.OmrGroundTruthPair(omr=converter.parse(base_peggy),ground=converter.parse('../'+i))
+				peggy_pair = omr.evaluators.OmrGroundTruthPair(omr=converter.parse(base_peggy),ground=converter.parse('../all/'+i))
 				diff = peggy_pair.getDifferences()
 				diffs.append(diff)
 				total += diff
@@ -23,3 +23,5 @@ for f in sorted(os.listdir('..')):
 # print(all_diffs)
 sorted_all_diffs = sorted(all_diffs.items(), key=operator.itemgetter(1))
 print(sorted_all_diffs)
+print('winner: '+str(sorted_all_diffs[0]))
+print('average edit distance for winner: '+str(sorted_all_diffs[0][1]/len(all_diffs)))
