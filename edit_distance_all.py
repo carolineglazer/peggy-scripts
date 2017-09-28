@@ -24,4 +24,4 @@ for f in sorted(os.listdir('../all/')):
 sorted_all_diffs = sorted(all_diffs.items(), key=operator.itemgetter(1))
 print(sorted_all_diffs)
 print('winner: '+str(sorted_all_diffs[0]))
-print('average edit distance for winner: '+str(sorted_all_diffs[0][1]/len(all_diffs)))
+print('average edit distance for winner: '+str(sorted_all_diffs[0][1]/len(all_diffs)-1))
