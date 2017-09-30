@@ -20,7 +20,7 @@ for f in sorted(os.listdir('../all/')):
 		all_diffs[f] = total
 		print(' ')
 
-# print(all_diffs)
+print(all_diffs)
 sorted_all_diffs = sorted(all_diffs.items(), key=operator.itemgetter(1))
 print(sorted_all_diffs)
 print('winner: '+str(sorted_all_diffs[0]))
